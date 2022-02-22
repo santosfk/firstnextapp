@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ name }) {
+export default function Home({ list }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -11,16 +11,21 @@ export default function Home({ name }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>top trends</h1>
-      <h2>ola {name}</h2>
+      <ul>
+        {list.map((item) => {
+          <li>{item.title}</li>;
+        })}
+      </ul>
     </div>
   );
 }
 
 export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/trending");
+  const json = await res.json();
   return {
     props: {
-      name: "guizin",
+      list: json.list,
     },
   };
 }
