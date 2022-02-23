@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+
 import styles from "../styles/Home.module.css";
 
 export default function Home({ list }) {
@@ -11,9 +11,15 @@ export default function Home({ list }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>trending movies</h1>
-      <ul>
+      <ul id="onorderList">
         {list.map((item) => (
-          <li>{item.title}</li>
+          <li id="movieList">
+            {item.title} <br />
+            <img
+              src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+              width="150"
+            />
+          </li>
         ))}
       </ul>
     </div>
