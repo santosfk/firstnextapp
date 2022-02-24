@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import * as style from "../styles/home.style";
+import Carousel from "react-elastic-carousel";
 export default function Home({ list }) {
   return (
     <style.Container>
@@ -12,20 +13,18 @@ export default function Home({ list }) {
       <style.Title>trending movies</style.Title>
       <style.List>
         <style.MoviesList>
-          {list.map((item) => (
-            <li>
-              {item.title} <br />
-              <img
-                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                width="250"
-              />
-            </li>
-          ))}
+          <Carousel itemsToShow={2}>
+            {list.map((item) => (
+              <li key={item.id}>
+                {item.title} <br />
+                <img
+                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                  width="350"
+                />
+              </li>
+            ))}
+          </Carousel>
         </style.MoviesList>
-        <style.Buttons>
-          <style.ButtonPrev>Previously</style.ButtonPrev>
-          <style.ButtonNext>Next</style.ButtonNext>
-        </style.Buttons>
       </style.List>
     </style.Container>
   );
