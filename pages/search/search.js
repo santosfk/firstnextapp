@@ -8,7 +8,7 @@ function Search() {
   const handleSearchData = async () => {
     if (search !== "") {
       const result = await fetch(
-        `http://localhost:3000/api/search?q=${search}`
+        `http://localhost:3000/api/search?query=${search}`
       );
       const json = await result.json();
       setListReceive(json.list);
@@ -25,7 +25,10 @@ function Search() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <style.Title>Busque o filme desejado</style.Title>
+      <style.Header>
+        <a>trending</a>
+        <a href="localhost:3000">search</a>
+      </style.Header>
       <input
         type="text"
         placeholder="digite o nome do filme"
