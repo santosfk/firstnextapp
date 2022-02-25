@@ -12,6 +12,9 @@ export default function Home({ list }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <style.Title>trending movies</style.Title>
+      <Link href="/search/search">
+        <h2> search</h2>
+      </Link>
       <style.List>
         <style.MoviesList>
           <Carousel itemsToShow={2}>
