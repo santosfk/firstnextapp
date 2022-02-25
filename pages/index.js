@@ -21,10 +21,10 @@ export default function Home({ list }) {
           <Carousel itemsToShow={2}>
             {list.map((item) => (
               <li key={item.id}>
-                {item.title} <br />
+                <h1> {item.title} </h1>
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  width="390"
+                  width="350"
                 />
               </li>
             ))}
