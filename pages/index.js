@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import * as style from "../styles/home.style";
 import Carousel from "react-elastic-carousel";
+import Link from "next";
 export default function Home({ list }) {
   return (
     <style.Container>
@@ -19,7 +20,7 @@ export default function Home({ list }) {
                 {item.title} <br />
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  width="350"
+                  width="390"
                 />
               </li>
             ))}

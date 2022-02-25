@@ -13,8 +13,15 @@ export const List = styled.div`
   margin-top: 5px;
 `;
 export const MoviesList = styled.ul`
+  transition: 0.5s;
   display: flex;
+  img:hover {
+    transition: 0.5s ease-in-out;
+    border-radius: 50px;
+  }
   li {
+    list-style: none;
+    font-size: 2rem;
     margin: 10px;
   }
 `;
