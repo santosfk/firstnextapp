@@ -4,11 +4,14 @@ import * as style from "./style";
 
 function Search() {
   const [search, setSearch] = useState("");
+  const [listReceive, setListReceive] = useState([]);
   const handleSearchData = async () => {
     if (search !== "") {
-      const res = await fetch(`http://localhost:3000/api/search?q=${search}`);
-      const json = await res.json();
-      console.log(json.backdrop_path);
+      const result = await fetch(
+        `http://localhost:3000/api/search?q=${search}`
+      );
+      const json = await result.json();
+      setListReceive(json.list);
     } else {
       console.log("algo falhou");
     }
@@ -29,8 +32,18 @@ function Search() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <h2>{search}</h2>
       <button onClick={handleSearchData}>buscar</button>
+      <ul>
+        {listReceive.map((item) => (
+          <li key={item.id}>
+            {item.title} <br />
+            <img
+              src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+              width="390"
+            />
+          </li>
+        ))}
+      </ul>
     </style.Container>
   );
 }
